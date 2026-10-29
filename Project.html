@@ -6,9 +6,15 @@
     <title>Game1</title>
 </head>
 <body>
+<button onclick="playGame('rock');">Rock</button>
 
+<button onclick="playGame('paper');">Paper</button>
 
-<button onclick="const randomnumber=Math.random(); let computerchoice=' ';
+<button onclick="playGame('scissors');">Scissors</button>
+    <script> 
+          function computerMove(){
+            let computerchoice='';
+            const randomnumber=Math.random(); 
 if(randomnumber>=0 && randomnumber<1/3){
      computerchoice= 'rock';
 }else if(randomnumber>1/3 && randomnumber<2/3){
@@ -16,76 +22,52 @@ if(randomnumber>=0 && randomnumber<1/3){
 }else if(randomnumber>2/3 && randomnumber<1){
     computerchoice= 'scissors';
 }
+return computerchoice;
+ }
+
+ function playGame(playerchoice){
+const computerchoice = computerMove();
 let result=' ';
- if(computerchoice ==='rock'){
+
+    if(playerchoice === 'rock'){
+ if(computerchoice === 'rock'){
     result ='tie';
  }
  else if(computerchoice === 'paper'){
     result ='lose';
  }
- else if(computerchoice ==='scissors'){
+ else if(computerchoice === 'scissors'){
     result ='win';
  }
- alert(`you chose rock and computer chose ${computerchoice} so you ${result}`);
-">
-Rock
-</button>
+}
 
+if(playerchoice === 'paper'){
+    if(computerchoice === 'rock'){
+       result ='win';
+    }
+    else if(computerchoice === 'paper'){
+       result ='tie';
+    }
+    else if(computerchoice === 'scissors'){
+       result ='lose';
+    }
+}
 
-<button onclick="
-const Randomnumber = Math.random();
-let Computerchoice ='';
-if(Randomnumber>=0 && Randomnumber<1/3){
-    Computerchoice ='rock';
+if(playerchoice === 'scissors'){
+    if(computerchoice === 'rock'){
+       result ='lose';
+    }
+    else if(computerchoice === 'paper'){
+       result ='win';
+    }
+    else if(computerchoice === 'scissors'){
+       result ='tie';
+    }
 }
-else if(Randomnumber>1/3 && Randomnumber<2/3){
-    Computerchoice ='paper';
-}
-else if(Randomnumber>2/3 && Randomnumber<1){
-    Computerchoice ='scissors';
-}
-let Result ='';
-if(Computerchoice === 'rock'){
-    Result ='win';
-}
-else if(Computerchoice === 'paper'){
-    Result ='tie';
-}
-else if(Computerchoice === 'scissors'){
-    Result ='lose';
-}
-alert(`you chose paper and computer chose ${Computerchoice} so you ${Result}`);
-"
->Paper</button>
 
-<button onclick="const random_number=Math.random();
+ alert(`you chose ${playerchoice} and computer chose ${computerchoice} so you ${result}`);
 
-let computer_choice='';
-if(random_number>=0 && random_number<1/3){
-    computer_choice='rock';
-}
-else if(random_number>1/3 && random_number<2/3){
-    computer_choice='paper';
-}
-else if(random_number>2/3 && random_number<1){
-    computer_choice='scissors';
-}
-let results='';
-if(computer_choice === 'rock'){
-    results ='win';
-}
-else if(computer_choice === 'paper'){
-    results ='tie';
-}
-else if(computer_choice === 'scissors'){
-    results ='lose';
-}
-alert(`you chose scissors and computer chose ${computer_choice} so you ${results}`);
-"
->Scissors</button>
-
-    <script>
-
+ }
     </script>
 </body>
 </html>
