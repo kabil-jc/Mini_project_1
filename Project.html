@@ -11,7 +11,14 @@
 <button onclick="playGame('paper');">Paper</button>
 
 <button onclick="playGame('scissors');">Scissors</button>
+<button onclick="object.wins=0, object.Lose=0, object.Tie=0">Reset</button>
     <script> 
+    const object={
+      wins:0,
+      Lose:0,
+      Tie:0
+    };
+    console.log(JSON.parse(localStorage.getItem('object')));
           function computerMove(){
             let computerchoice='';
             const randomnumber=Math.random(); 
@@ -65,9 +72,19 @@ if(playerchoice === 'scissors'){
     }
 }
 
- alert(`you chose ${playerchoice} and computer chose ${computerchoice} so you ${result}`);
-
+ alert(`you chose ${playerchoice} and computer chose ${computerchoice} so you ${result}
+ Wins:${object.wins} Lose:${object.Lose} Tie:${object.Tie}`);
+ if(result ==='win'){
+   object.wins++;
  }
+ else if(result ==='lose'){
+   object.Lose++;
+ }
+ else if(result ==='tie'){
+   object.Tie++;
+ }
+ localStorage.setItem('object',JSON.stringify(object));
+}
     </script>
 </body>
 </html>
